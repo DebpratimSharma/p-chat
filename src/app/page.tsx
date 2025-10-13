@@ -13,7 +13,14 @@ export default function Home() {
 
   useEffect(() => {
     // Initialise PeerJS
-    const peer = new Peer();
+   const peer = new Peer({
+     host: "peer-server-h0b2.onrender.com",
+     port: 443,
+     secure: true,
+     path: "/", // 👈 important now that it’s mounted at /peerjs
+   });
+
+
     peerRef.current = peer;
 
     peer.on("open", (id) => {
