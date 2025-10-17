@@ -10,14 +10,15 @@ export default function Home() {
   const [messages, setMessages] = useState<string[]>([]);
 
   const peerRef = useRef<Peer | null>(null);
+  const ServerHost = "peer-server-m8u4.onrender.com";
 
   useEffect(() => {
     // Initialise PeerJS
    const peer = new Peer({
-     host: "peer-server-h0b2.onrender.com",
+     host: ServerHost,
      port: 443,
      secure: true,
-     path: "/", // 👈 important now that it’s mounted at /peerjs
+     path: "/peerjs", // 👈 important now that it’s mounted at /peerjs
    });
 
 
